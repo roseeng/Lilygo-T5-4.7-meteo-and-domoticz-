@@ -1,7 +1,7 @@
 const bool DebugDisplayUpdate = false;
 
 // Change to your WiFi credentials
-const char* ssid     = "SSID";
+const char* ssid     = "Görans Huawei";
 const char* password = "PASSWORD";
 
 // Use your own API key by signing up for a free developer account at https://openweathermap.org/

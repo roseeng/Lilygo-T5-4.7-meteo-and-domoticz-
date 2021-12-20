@@ -21,7 +21,8 @@
 #include "owm_credentials.h"
 #include "forecast_record.h"
 //#include "lang.h"
-#include "lang_fr.h"
+//#include "lang_fr.h"
+#include "lang_se.h"
 
 #define SCREEN_WIDTH   EPD_WIDTH
 #define SCREEN_HEIGHT  EPD_HEIGHT
