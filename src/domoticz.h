@@ -10,7 +10,15 @@ const int disher = 550 ; //disher icon at 550W
 
 // max values
 const int max_val=12;
-const String domoticz_IDX[max_val][3] = {{"Ballon","61","Data"},{"Batterie","83","Data"},{},{"Linky","28","Usage"},{"Today","28","CounterToday"},{},{"Solaire","29","Usage"},{"Today","29","CounterToday"},{},{"Gazpar","55","CounterToday"}} ; 
+const String domoticz_IDX[max_val][3] = {
+  {"Ballon","61","Data"},
+  {"Batterie","83","Data"},{},
+  {"Linky","28","Usage"},
+  {"Today","28","CounterToday"},{},
+  {"Solaire","29","Usage"},
+  {"Today","29","CounterToday"},{},
+  {"Gazpar","55","CounterToday"}
+  } ; 
 String domoticz_result[max_val]; 
 
 String json_domoticz(char* host, int httpPort , String idx){

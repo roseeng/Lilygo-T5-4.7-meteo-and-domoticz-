@@ -120,7 +120,7 @@ uint8_t StartWiFi() {
   }
   if (WiFi.status() == WL_CONNECTED) {
     wifi_signal = WiFi.RSSI(); // Get Wifi Signal strength now, because the WiFi will be turned off to save power!
-    Serial.println("WiFi connected at: " + WiFi.localIP().toString());
+    Serial.println("WiFi connected to '" + String(ssid) + "' at: " + WiFi.localIP().toString());
   }
   else Serial.println("WiFi connection *** FAILED ***");
   return WiFi.status();
@@ -167,7 +167,7 @@ void setup() {
       bool RxWeather  = false;
       bool RxForecast = false;
       WiFiClient client;   // wifi client object
-      get_data_domoticz();
+      //get_data_domoticz();
       //get_data_domoticz_new();
       while ((RxWeather == false || RxForecast == false) && Attempts <= 2) { // Try up-to 2 time for Weather and Forecast data
         if (RxWeather  == false) RxWeather  = obtainWeatherData(client, "onecall");
@@ -284,9 +284,13 @@ bool obtainWeatherData(WiFiClient & client, const String & RequestType) {
   //api.openweathermap.org/data/2.5/RequestType?lat={lat}&lon={lon}&appid={API key}
   String uri = "/data/2.5/" + RequestType + "?lat=" + Latitude + "&lon=" + Longitude + "&appid=" + apikey + "&mode=json&units=" + units + "&lang=" + Language;
   if (RequestType == "onecall") uri += "&exclude=minutely,hourly,alerts,daily";
+
+  Serial.printf("Calling weather service: %s", uri);
+
   http.begin(client, server, 80, uri); //http.begin(uri,test_root_ca); //HTTPS example connection
   int httpCode = http.GET();
   if (httpCode == HTTP_CODE_OK) {
+    Serial.printf("200 OK");
     if (!DecodeWeather(http.getStream(), RequestType)) return false;
     client.stop();
   }
@@ -347,7 +351,7 @@ void DisplayWeather() {                          // 4.7" e-paper display is 960x
   DisplayWeatherIcon(835, 140);                  // Display weather icon scale = Large;
   DisplayForecastSection ( 30 , 370);              // 3hr forecast boxes
   DisplayGraphSection(320, 220);                 // Graphs of pressure, temperature, humidity and rain or snowfall
-  DisplayMQTT (260 , 245 );
+  //DisplayMQTT (260 , 245 );
 }
 
 void DisplayGeneralInfoSection() {
