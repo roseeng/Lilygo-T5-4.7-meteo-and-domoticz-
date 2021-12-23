@@ -6,4 +6,4 @@
 
 # Göran - Don't keep secrets in source control
 Secrets/
-!Secrets/*.template
+!**/Secrets/*.template
