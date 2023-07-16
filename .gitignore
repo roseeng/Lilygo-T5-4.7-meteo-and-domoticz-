@@ -4,8 +4,15 @@
 .vscode/launch.json
 .vscode/ipch
 
+.vscode/extensions.json
 
-# Göran - I am putting secrets here
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+# Göran - Don't keep secrets in source control
 **/Secrets/*
 !**/Secrets/*.template
 

@@ -1,11 +1,13 @@
+#include "Secrets/secrets.h"
+
 const bool DebugDisplayUpdate = false;
 
 // Change to your WiFi credentials
-const char* ssid     = "MYWIFI";
-const char* password = "MYSECRET";
+const char* ssid     = Secrets::ssid;
+const char* password = Secrets::password;
 
 // Use your own API key by signing up for a free developer account at https://openweathermap.org/
-String apikey       = "94fa1b18622d74221e5052d7d7b5dd88";                      // See: https://openweathermap.org/
+String apikey       = Secrets::apikey;                      // See: https://openweathermap.org/
 const char server[] = "api.openweathermap.org";
 //http://api.openweathermap.org/data/2.5/forecast?q=Melksham,UK&APPID=your_OWM_API_key&mode=json&units=metric&cnt=40
 //http://api.openweathermap.org/data/2.5/weather?q=Melksham,UK&APPID=your_OWM_API_key&mode=json&units=metric&cnt=1
